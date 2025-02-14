@@ -18,10 +18,10 @@ using Microsoft.Windows.Storage.Pickers;
 
 var folderPicker = new FolderPicker(this.AppWindow.Id)
 {
-    // (Optional) specify the initial location. If not defined, use system default:
+    // (Optional) specify the initial location. If not specified, use system default:
     SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
 
-    // (Optional) specify the text displayed on commit button. If not defined, use system default:
+    // (Optional) specify the text displayed on commit button. If not specified, use system default:
     CommitButtonText = "Select Folder",
 };
 ```
@@ -34,10 +34,10 @@ using namespace winrt::Microsoft::Windows::Storage::Pickers;
 
 FolderPicker folderPicker(AppWindow().Id());
 
-// (Optional) specify the initial location. If not defined, use system default:
+// (Optional) specify the initial location. If not specified, use system default:
 folderPicker.SuggestedStartLocation(PickerLocationId::DocumentsLibrary);
 
-// (Optional) specify the text displayed on commit button. If not defined, use system default:
+// (Optional) specify the text displayed on commit button. If not specified, use system default:
 folderPicker.CommitButtonText(L"Select Folder");
 ```
 

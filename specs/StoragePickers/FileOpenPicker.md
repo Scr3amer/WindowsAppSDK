@@ -18,13 +18,13 @@ using Microsoft.Windows.Storage.Pickers;
 
 var openPicker = new FileOpenPicker(this.AppWindow.Id)
 {
-    // (Optional) specify the initial location. If not defined, use system default:
+    // (Optional) specify the initial location. If not specified, use system default:
     SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
     
-    // (Optional) special the text diaplayed on commit button. If not defined, use system default:
+    // (Optional) specify the text diaplayed on commit button. If not specified, use system default:
     CommitButtonText = "Choose selected files",
 
-    // (Optional) limit file extensions filters. If not defined, default to all (*.*)
+    // (Optional) specify file extensions filters. If not specified, default to all (*.*)
     FileTypeFilter = { ".txt", ".pdf", ".doc", ".docx" },
 };
 ```
@@ -37,8 +37,13 @@ using namespace winrt::Microsoft::Windows::Storage::Pickers;
 
 FileOpenPicker openPicker(AppWindow().Id());
 
+// (Optional) specify the initial location. If not specified, use system default:
 openPicker.SuggestedStartLocation(PickerLocationId::DocumentsLibrary);
+
+// (Optional) specify the text diaplayed on commit button. If not specified, use system default:
 openPicker.CommitButtonText(L"Choose selected files");
+
+// (Optional) specify file extensions filters. If not specified, default to all (*.*)
 openPicker.FileTypeFilter().Append(L".txt");
 openPicker.FileTypeFilter().Append(L".pdf");
 openPicker.FileTypeFilter().Append(L".doc");

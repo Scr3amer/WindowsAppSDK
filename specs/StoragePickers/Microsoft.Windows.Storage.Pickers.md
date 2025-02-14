@@ -8,9 +8,9 @@ and accessing paths — all while integrating seamlessly across Windows desktops
 # Background
 
 The standard OS file and folder picker APIs [Windows.Storage.Pickers](https://learn.microsoft.com/en-us/uwp/api/windows.storage.pickers) 
-do not work when running as an administrator. To addresses this gap, here we're introducing the new
+do not work when running as an administrator. To address this gap, here we're introducing the new
 `Microsoft.Windows.Storage.Pickers` API by enabling file and folder selection in elevated mode. 
-It is designed for desktop apps and uses a `WindowId` property to link the picker to the host window.
+It is designed for desktop apps and uses a `WindowId` property to link the picker to its host window.
 
 # Classes
 

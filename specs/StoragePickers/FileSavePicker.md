@@ -16,21 +16,22 @@ using Microsoft.Windows.Storage.Pickers;
 
 var savePicker = new FileSavePicker(this.AppWindow.Id)
 {
-    // (Optional) specify the initial location. If not defined, use system default:
+    // (Optional) specify the initial location. If not dspecifiedefined, use system default:
     SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
     
-    // (Optional) specify the default file name. If not defined, use system default:
+    // (Optional) specify the default file name. If not specified, use system default:
     SuggestedFileName = "My Document",
 
-    // (Optional) specify the text displayed on commit button. If not defined, use system default:
+    // (Optional) specify the text displayed on commit button. If not specified, use system default:
     CommitButtonText = "Save Document",
 
-    // (Optional) categorized extensions types. If not defined, use system default: All Files (*.*)
+    // (Optional) categorized extensions types. If not specified, use system default: All Files (*.*)
     FileTypeChoices = {
         { "Documents", new List<string> { ".txt", ".doc", ".docx" } }
     },
 
-    // (Optional) specify the default file extension.
+    // (Optional) specify the default file extension (will be appended after the default file name).
+    //      If not specified, will not appended after the default extension.
     DefaultFileExtension = ".txt",
 };
 ```
@@ -43,16 +44,17 @@ using namespace winrt::Microsoft::Windows::Storage::Pickers;
 
 FileSavePicker savePicker(AppWindow().Id());
 
-// (Optional) specify the initial location. If not defined, use system default:
+// (Optional) specify the initial location. If not specified, use system default:
 savePicker.SuggestedStartLocation(PickerLocationId::DocumentsLibrary);
 
-// (Optional) specify the default file name. If not defined, use system default:
+// (Optional) specify the default file name. If not specified, use system default:
 savePicker.SuggestedFileName(L"NewDocument");
 
-// (Optional) categorized extensions types. If not defined, use system default: All Files (*.*)
+// (Optional) categorized extensions types. If not specified, use system default: All Files (*.*)
 savePicker.FileTypeChoices().Insert(L"Text", winrt::single_threaded_vector<winrt::hstring>({ L".txt" }));
 
-// (Optional) specify the default file extension.
+// (Optional) specify the default file extension (will be appended after the default file name).
+//      If not specified, will not appended after the default extension.
 savePicker.DefaultFileExtension(L".txt");
 ```
 
