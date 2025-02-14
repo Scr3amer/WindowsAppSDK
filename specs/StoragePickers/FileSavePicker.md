@@ -1,14 +1,29 @@
 FileSavePicker Class
 ===
 
-# Definition
+# Background
 
 Namespace: [Microsoft.Windows.Storage.Pickers](./Microsoft.Windows.Storage.Pickers.md)
 
 Represents a UI element that lets the user choose a file to save.
 
-# Constructor
+# API Pages
 
+## Constructor
+
+### Attributes
+
+| **Attribute**              | **Type**           | **Description**   |
+|----------------------------|--------------------|-------------------|
+| `ViewMode`                 | [Microsoft::Windows::Storage::Pickers::PickerViewMode](./PickerViewMode.md)    | Gets or sets the view mode that the file picker is using to present items.         |
+| `SuggestedStartLocation`   | [Microsoft::Windows::Storage::Pickers::PickerLocationId](./PickerLocationId.md)| Gets or sets the initial location where the file picker looks for files.           |
+| `SuggestedFileName`        | `winrt::hstring`                       | Gets or sets the file name displayed in the file name input box on launching the dialog.                                   |
+| `DefaultFileExtension`     | `winrt::hstring`                       | Gets or sets the file extension tailing the suggested file name in the file name input box on launching the dialog.        |
+| `CommitButtonText`         | `winrt::hstring`                       | Gets or sets the text displayed on the commit button of the file picker.                                                   |
+| `FileTypeChoices`          | `winrt::Windows::Foundation::Collections::IMap<hstring, winrt::Windows::Foundation::Collections::IVector<hstring>>`    | The file extensions categorized by purpose.|
+
+
+### Examples
 C#
 
 ```csharp
@@ -16,7 +31,7 @@ using Microsoft.Windows.Storage.Pickers;
 
 var savePicker = new FileSavePicker(this.AppWindow.Id)
 {
-    // (Optional) specify the initial location. If not dspecifiedefined, use system default:
+    // (Optional) specify the initial location. If not specified, use system default:
     SuggestedStartLocation = PickerLocationId.DocumentsLibrary,
     
     // (Optional) specify the default file name. If not specified, use system default:
@@ -58,15 +73,13 @@ savePicker.FileTypeChoices().Insert(L"Text", winrt::single_threaded_vector<winrt
 savePicker.DefaultFileExtension(L".txt");
 ```
 
-# Methods
-
-## PickSaveFileAsync
+## FileSavePicker.PickSaveFileAsync
 
 Displays a UI element that allows the user to configure the file path to save.
 
-### Returns
-```
-IAsyncOperation<Windows.Storage.StorageFile>
+### Definition
+```cpp
+winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Storage::StorageFile> PickSaveFileAsync();
 ```
 Return null if the file dialog was cancelled or closed without selection.
 

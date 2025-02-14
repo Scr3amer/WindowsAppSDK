@@ -12,7 +12,9 @@ do not work when running as an administrator. To address this gap, here we're in
 `Microsoft.Windows.Storage.Pickers` API by enabling file and folder selection in elevated mode. 
 It is designed for desktop apps and uses a `WindowId` property to link the picker to its host window.
 
-# Classes
+# Conceptual pages
+
+## Classes
 
 Note: Developers should specify a window id to associate the picker with an owner window before 
 showing UI.
@@ -23,8 +25,7 @@ showing UI.
 | [FileSavePicker](./FileSavePicker.md)| Displays a UI element that allows user to save a file.    |
 | [FolderPicker](./FolderPicker.md)    | Displays a UI element that allows user to choose a folder.|
 
-
-# Enums
+## Enums
 
 | **Enum** | **Description** |
 |----------|-----------------|

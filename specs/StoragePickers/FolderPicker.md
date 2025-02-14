@@ -1,7 +1,7 @@
 FolderPicker Class
 ===
 
-# Definition
+# Background
 
 Namespace: [Microsoft.Windows.Storage.Pickers](./Microsoft.Windows.Storage.Pickers.md)
 
@@ -9,7 +9,19 @@ Represents a UI element that lets the user choose a folder.
 
 Supports specifying the initial location and text on commit button.
 
-# Constructor
+# API Pages
+
+## Constructor
+
+### Attributes
+
+| **Attribute**              | **Type**           | **Description**   |
+|----------------------------|--------------------|-------------------|
+| `ViewMode`                 | [Microsoft::Windows::Storage::Pickers::PickerViewMode](./PickerViewMode.md)    | Gets or sets the view mode that the file picker is using to present items.         |
+| `SuggestedStartLocation`   | [Microsoft::Windows::Storage::Pickers::PickerLocationId](./PickerLocationId.md)| Gets or sets the initial location where the file picker looks for files.           |
+| `CommitButtonText`         | `winrt::hstring`                       | Gets or sets the text displayed on the commit button of the file picker.                                                   |
+
+### Examples
 
 C#
 
@@ -41,15 +53,13 @@ folderPicker.SuggestedStartLocation(PickerLocationId::DocumentsLibrary);
 folderPicker.CommitButtonText(L"Select Folder");
 ```
 
-# Methods
-
-## PickSingleFolderAsync
+## FolderPicker.PickSingleFolderAsync
 
 Displays a UI element that allows the user to choose a folder.
 
-### Returns
-```
-IAsyncOperation<Windows.Storage.StorageFolder>
+### Definition
+```cpp
+winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Storage::StorageFolder> PickSingleFolderAsync();
 ```
 Return null if the file dialog was cancelled or closed without selection.
 
